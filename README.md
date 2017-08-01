@@ -3,6 +3,46 @@
 
 ![](https://media.githubusercontent.com/media/LUXOPHIA/BezierConverter/master/--------/_SCREENSHOT/BezierConverter.png)
 
+任意次元のベクトルを扱う `LUX.DN.TDoubleND` レコード型を利用している。`TDoubleND.DimN` プロパティが次元数を示す。
+`Comb( n, k )` は [組合せ(Combination)](https://www.wikiwand.com/ja/%E7%B5%84%E5%90%88%E3%81%9B_(%E6%95%B0%E5%AD%A6))数、つまり [二項係数](https://www.wikiwand.com/ja/%E4%BA%8C%E9%A0%85%E4%BF%82%E6%95%B0) を返す関数。
+
+### ▼ 多項式基底 ⇒ バーンスタイン基底
+
+```pascal
+function PolyToBezi( const P_:TDoubleND ) :TDoubleND;
+var
+   X, Y :Integer;
+begin
+     with Result do
+     begin
+          DimN := P_.DimN;
+          for X := 0 to DimN-1 do _s[ X ] := P_[ X ] / Comb( DimN-1, X );
+          for Y := 1 to DimN-1 do
+          begin
+               for X := DimN-1 downto Y do _s[ X ] := _s[ X ] + _s[ X-1 ];
+          end;
+     end;
+end;
+```
+
+### ▼ バーンスタイン基底 ⇒ 多項式基底
+```pascal
+function BeziToPoly( const P_:TDoubleND ) :TDoubleND;
+var
+   X, Y :Integer;
+begin
+     with Result do
+     begin
+          _s := Copy( P_._s );
+          for Y := 1 to DimN-1 do
+          begin
+               for X := DimN-1 downto Y do _s[ X ] := _s[ X ] - _s[ X-1 ];
+          end;
+          for X := 0 to DimN-1 do _s[ X ] := _s[ X ] * Comb( DimN-1, X );
+     end;
+end;
+```
+
 ----
 
 * [BYU Computer Science](https://cs.byu.edu)
