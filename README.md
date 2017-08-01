@@ -1,5 +1,5 @@
 # BezierConverter
-任意の次数の[多項式](https://www.wikiwand.com/ja/%E5%A4%9A%E9%A0%85%E5%BC%8F)（[多項式基底](https://www.wikiwand.com/ja/%E5%A4%9A%E9%A0%85%E5%BC%8F%E5%9F%BA%E5%BA%95)）を[バーンスタイン多項式](https://www.wikiwand.com/ja/%E3%83%90%E3%83%BC%E3%83%B3%E3%82%B9%E3%82%BF%E3%82%A4%E3%83%B3%E5%A4%9A%E9%A0%85%E5%BC%8F)、つまり[ベジエ曲線](https://www.wikiwand.com/ja/%E3%83%99%E3%82%B8%E3%82%A7%E6%9B%B2%E7%B7%9A)へ変換します。
+任意の次数の[多項式](https://www.wikiwand.com/ja/%E5%A4%9A%E9%A0%85%E5%BC%8F)（[多項式基底](https://www.wikiwand.com/ja/%E5%A4%9A%E9%A0%85%E5%BC%8F%E5%9F%BA%E5%BA%95)）を[バーンスタイン多項式](https://www.wikiwand.com/ja/%E3%83%90%E3%83%BC%E3%83%B3%E3%82%B9%E3%82%BF%E3%82%A4%E3%83%B3%E5%A4%9A%E9%A0%85%E5%BC%8F)、つまり[ベジエ曲線](https://www.wikiwand.com/ja/%E3%83%99%E3%82%B8%E3%82%A7%E6%9B%B2%E7%B7%9A)へ基底変換します。
 
 ![](https://media.githubusercontent.com/media/LUXOPHIA/BezierConverter/master/--------/_SCREENSHOT/BezierConverter.png)
 
