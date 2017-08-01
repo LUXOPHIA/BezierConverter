@@ -1,4 +1,4 @@
-program RootsFormula;
+program BezierConverter;
 
 uses
   System.StartUpCopy,
@@ -29,7 +29,8 @@ uses
   LUX.Curve.T2.D2 in '_LIBRARY\LUXOPHIA\LUX.Curve\LUX.Curve.T2.D2.pas',
   LUX.Curve.T2.D3 in '_LIBRARY\LUXOPHIA\LUX.Curve\LUX.Curve.T2.D3.pas',
   FrameGraph in 'FrameGraph.pas' {GraphFrame: TFrame},
-  LUX.Tree in '_LIBRARY\LUXOPHIA\LUX\LUX.Tree.pas';
+  LUX.Tree in '_LIBRARY\LUXOPHIA\LUX\LUX.Tree.pas',
+  LUX.DN in '_LIBRARY\LUXOPHIA\LUX\LUX.DN.pas';
 
 {$R *.res}
 

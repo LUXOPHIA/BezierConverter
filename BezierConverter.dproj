@@ -3,7 +3,7 @@
         <ProjectGuid>{5EE875BB-0B42-4A1A-A406-4C76A36111FE}</ProjectGuid>
         <ProjectVersion>18.2</ProjectVersion>
         <FrameworkType>FMX</FrameworkType>
-        <MainSource>RootsFormula.dpr</MainSource>
+        <MainSource>BezierConverter.dpr</MainSource>
         <Base>True</Base>
         <Config Condition="'$(Config)'==''">Debug</Config>
         <Platform Condition="'$(Platform)'==''">Win64</Platform>
@@ -88,7 +88,7 @@
         <AUP_INTERNET>true</AUP_INTERNET>
         <AUP_READ_CALENDAR>true</AUP_READ_CALENDAR>
         <Icon_MainIcon>$(BDS)\bin\delphi_PROJECTICON.ico</Icon_MainIcon>
-        <SanitizedProjectName>RootsFormula</SanitizedProjectName>
+        <SanitizedProjectName>BezierConverter</SanitizedProjectName>
         <AUP_ACCESS_FINE_LOCATION>true</AUP_ACCESS_FINE_LOCATION>
         <AUP_CALL_PHONE>true</AUP_CALL_PHONE>
         <AUP_WRITE_CALENDAR>true</AUP_WRITE_CALENDAR>
@@ -342,6 +342,7 @@
             <DesignClass>TFrame</DesignClass>
         </DCCReference>
         <DCCReference Include="_LIBRARY\LUXOPHIA\LUX\LUX.Tree.pas"/>
+        <DCCReference Include="_LIBRARY\LUXOPHIA\LUX\LUX.DN.pas"/>
         <BuildConfiguration Include="Release">
             <Key>Cfg_2</Key>
             <CfgParent>Base</CfgParent>
@@ -360,13 +361,13 @@
         <BorlandProject>
             <Delphi.Personality>
                 <Source>
-                    <Source Name="MainSource">RootsFormula.dpr</Source>
+                    <Source Name="MainSource">BezierConverter.dpr</Source>
                 </Source>
             </Delphi.Personality>
             <Deployment Version="3">
-                <DeployFile LocalName="Win64\Release\RootsFormula.exe" Configuration="Release" Class="ProjectOutput">
+                <DeployFile LocalName="Win64\Release\BezierConverter.exe" Configuration="Release" Class="ProjectOutput">
                     <Platform Name="Win64">
-                        <RemoteName>RootsFormula.exe</RemoteName>
+                        <RemoteName>BezierConverter.exe</RemoteName>
                         <Overwrite>true</Overwrite>
                     </Platform>
                 </DeployFile>
@@ -375,9 +376,9 @@
                         <Overwrite>true</Overwrite>
                     </Platform>
                 </DeployFile>
-                <DeployFile LocalName="Win64\Debug\RootsFormula.exe" Configuration="Debug" Class="ProjectOutput">
+                <DeployFile LocalName="Win64\Debug\BezierConverter.exe" Configuration="Debug" Class="ProjectOutput">
                     <Platform Name="Win64">
-                        <RemoteName>RootsFormula.exe</RemoteName>
+                        <RemoteName>BezierConverter.exe</RemoteName>
                         <Overwrite>true</Overwrite>
                     </Platform>
                 </DeployFile>
@@ -396,15 +397,15 @@
                         <Overwrite>true</Overwrite>
                     </Platform>
                 </DeployFile>
-                <DeployFile LocalName="Win64\Debug\RootsFormula.rsm" Configuration="Debug" Class="DebugSymbols">
+                <DeployFile LocalName="Win64\Debug\BezierConverter.rsm" Configuration="Debug" Class="DebugSymbols">
                     <Platform Name="Win64">
-                        <RemoteName>RootsFormula.rsm</RemoteName>
+                        <RemoteName>BezierConverter.rsm</RemoteName>
                         <Overwrite>true</Overwrite>
                     </Platform>
                 </DeployFile>
-                <DeployFile LocalName="Win32\Debug\RootsFormula.exe" Configuration="Debug" Class="ProjectOutput">
+                <DeployFile LocalName="Win32\Debug\BezierConverter.exe" Configuration="Debug" Class="ProjectOutput">
                     <Platform Name="Win32">
-                        <RemoteName>RootsFormula.exe</RemoteName>
+                        <RemoteName>BezierConverter.exe</RemoteName>
                         <Overwrite>true</Overwrite>
                     </Platform>
                 </DeployFile>

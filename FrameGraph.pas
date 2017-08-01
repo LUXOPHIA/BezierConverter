@@ -26,7 +26,7 @@ type
     ///// ÉÅÉ\ÉbÉh
     function ScrToPos( const S_:TPointF ) :TSingle2D;
     function PosToScr( const P_:TSingle2D ) :TPointF;
-    procedure DrawPoin( const P_:TSingle2D; const Color_:TAlphaColor );
+    procedure DrawPoin( const P_:TSingle2D; const Radius_:Single; const Color_:TAlphaColor );
     procedure DrawLine( const P0_,P1_:TSingle2D; const Size_:Single; const Color_:TAlphaColor );
     procedure DrawScaleX( const Gap_:Single; const Size_:Single; const Color_:TAlphaColor );
     procedure DrawScaleY( const Gap_:Single; const Size_:Single; const Color_:TAlphaColor );
@@ -70,7 +70,7 @@ begin
 
      _Path := TPathData.Create;
 
-     _Range := TSingleArea2D.Create( -1.5, -1, +1.5, +1 );
+     _Range := TSingleArea2D.Create( 0, -1, +1, +1 );
 
      _DivN := 200;
 end;
@@ -98,24 +98,19 @@ end;
 
 //------------------------------------------------------------------------------
 
-procedure TGraphFrame.DrawPoin( const P_:TSingle2D; const Color_:TAlphaColor );
+procedure TGraphFrame.DrawPoin( const P_:TSingle2D; const Radius_:Single; const Color_:TAlphaColor );
 var
-   R, R1, R2 :TRectF;
+   R :TRectF;
 begin
      R := TRectF.Create( PosToScr( P_ ) );
 
-     R1 := R;  R1.Inflate( 4, 4 );
-     R2 := R;  R2.Inflate( 8, 8 );
+     R.Inflate( Radius_, Radius_ );
 
      with Canvas do
      begin
           Fill.Color := Color_;
 
-          FillEllipse( R2, 1 );
-
-          Fill.Color := TAlphaColors.White;
-
-          FillEllipse( R1, 1 );
+          FillEllipse( R, 1 );
      end;
 end;
 
@@ -175,9 +170,9 @@ procedure TGraphFrame.DrawScaleXs( const Color_:TAlphaColor );
 var
    P0, P1 :TSingle2D;
 begin
-     DrawScaleX( 0.1, 0.125, Color_ );
-     DrawScaleX( 0.5, 0.25 , Color_ );
-     DrawScaleX( 1.0, 0.5  , Color_ );
+     DrawScaleX( 0.025, 0.125, Color_ );
+     DrawScaleX( 0.125, 0.250, Color_ );
+     DrawScaleX( 0.250, 0.500, Color_ );
 
      P0.X := 0;  P0.Y := _Range.Min.Y;
      P1.X := 0;  P1.Y := _Range.Max.Y;
@@ -190,8 +185,8 @@ var
    P0, P1 :TSingle2D;
 begin
      DrawScaleY( 0.1, 0.125, Color_ );
-     DrawScaleY( 0.5, 0.25 , Color_ );
-     DrawScaleY( 1.0, 0.5  , Color_ );
+     DrawScaleY( 0.5, 0.250, Color_ );
+     DrawScaleY( 1.0, 0.500, Color_ );
 
      P0.X := _Range.Min.X;  P0.Y := 0;
      P1.X := _Range.Max.X;  P1.Y := 0;
