@@ -12,10 +12,10 @@ uses
 type
   TForm1 = class(TForm)
     GraphFrame1: TGraphFrame;
-    Panel1: TPanel;
     Timer1: TTimer;
-    SpinBox1: TSpinBox;
-    Label1: TLabel;
+    Panel1: TPanel;
+      Label1: TLabel;
+        SpinBox1: TSpinBox;
     procedure FormCreate(Sender: TObject);
     procedure GraphFrame1Paint(Sender: TObject; Canvas: TCanvas; const ARect: TRectF);
     procedure Timer1Timer(Sender: TObject);
@@ -30,11 +30,13 @@ type
   public
     { public 宣言 }
     _PolyN  :Integer;
-    _BeziFs :array [ 0..3 ] of TDoubleND;
+    _PolyKs :array [ 0..3 ] of TDoubleND;
     _FrameI :Cardinal;
-    _BeziF  :TDoubleND;
     _PolyK  :TDoubleND;
     _BeziK  :TDoubleND;
+    ///// メソッド
+    procedure GenPolyK;
+    procedure GenBeziK;
   end;
 
 var
@@ -66,7 +68,7 @@ var
    I :Integer;
    P :TSingle2D;
 begin
-     for I := 0 to _BeziF.DimN-1 do
+     for I := 0 to _BeziK.DimN-1 do
      begin
           P.X := I / ( _BeziK.DimN-1 );
           P.Y := _BeziK[ I ];
@@ -80,7 +82,7 @@ var
    I :Integer;
    P0, P1 :TSingle2D;
 begin
-     for I := 0 to _BeziF.DimN-2 do
+     for I := 0 to _BeziK.DimN-2 do
      begin
           P0.X := ( I+0 ) / ( _BeziK.DimN-1 );
           P0.Y := _BeziK[ I+0 ];
@@ -105,30 +107,9 @@ end;
 
 //&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&& public
 
-//&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
-
-procedure TForm1.FormCreate(Sender: TObject);
-begin
-     SpinBox1Change( Sender );
-end;
-
-////////////////////////////////////////////////////////////////////////////////
-
-procedure TForm1.GraphFrame1Paint(Sender: TObject; Canvas: TCanvas; const ARect: TRectF);
-begin
-     DrawPolyCurv( 6, TAlphaColors.Black );
-
-     DrawBeziEdge( 3, TAlphaColors.Lime  );
-     DrawBeziPoin( 6, TAlphaColors.Lime  );
-     DrawBeziPoin( 3, TAlphaColors.White );
-     DrawBeziCurv( 3, TAlphaColors.Red   );
-end;
-
-//------------------------------------------------------------------------------
-
-procedure TForm1.Timer1Timer(Sender: TObject);
+procedure TForm1.GenPolyK;
 const
-     KeyW :Cardinal = 20{Frame};
+     KeyW :Cardinal = 25{Frame};
 var
    Id :Integer;
    Bs :TDouble4D;
@@ -137,23 +118,56 @@ begin
 
      if Id = 0 then
      begin
-          _BeziFs[ 0 ] := _BeziFs[ 1 ];
-          _BeziFs[ 1 ] := _BeziFs[ 2 ];
-          _BeziFs[ 2 ] := _BeziFs[ 3 ];
+          _PolyKs[ 0 ] := _PolyKs[ 1 ];
+          _PolyKs[ 1 ] := _PolyKs[ 2 ];
+          _PolyKs[ 2 ] := _PolyKs[ 3 ];
 
-          _BeziFs[ 3 ] := 2 * TDoubleND.RandBS1( _PolyN );
+          _PolyKs[ 3 ] := BeziToPoly( TDoubleND.RandG( _PolyN ) );  // Bernstein → Power
      end;
 
      BSplin4( Id / KeyW, Bs );
 
-     _BeziF := Bs._1 * _BeziFs[ 0 ]
-             + Bs._2 * _BeziFs[ 1 ]
-             + Bs._3 * _BeziFs[ 2 ]
-             + Bs._4 * _BeziFs[ 3 ];
+     _PolyK := Bs._1 * _PolyKs[ 0 ]
+             + Bs._2 * _PolyKs[ 1 ]
+             + Bs._3 * _PolyKs[ 2 ]
+             + Bs._4 * _PolyKs[ 3 ];
+end;
 
-     _PolyK := BeziToPoly( _BeziF );  // Bernstein → Power
-
+procedure TForm1.GenBeziK;
+begin
      _BeziK := PolyToBezi( _PolyK );  // Power → Bernstein
+end;
+
+//&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
+
+procedure TForm1.FormCreate(Sender: TObject);
+begin
+     SpinBox1Change( Sender );
+
+     _FrameI := 0;
+
+     GenPolyK;
+     GenBeziK;
+end;
+
+////////////////////////////////////////////////////////////////////////////////
+
+procedure TForm1.GraphFrame1Paint(Sender: TObject; Canvas: TCanvas; const ARect: TRectF);
+begin
+     DrawPolyCurv( 9, $FF3C3C96 );
+
+     DrawBeziEdge( 3, $FFF06060 );
+     DrawBeziCurv( 3, $FF66FF66 );
+     DrawBeziPoin( 6, $FFF06060 );
+     DrawBeziPoin( 3, $FFFFFFFF );
+end;
+
+//------------------------------------------------------------------------------
+
+procedure TForm1.Timer1Timer(Sender: TObject);
+begin
+     GenPolyK;
+     GenBeziK;
 
      GraphFrame1.Repaint;
 
@@ -165,14 +179,6 @@ end;
 procedure TForm1.SpinBox1Change(Sender: TObject);
 begin
      _PolyN := Round( SpinBox1.Value ) + 1;
-
-     _BeziFs[ 1 ] := TDoubleND.Create( 0, _PolyN );
-     _BeziFs[ 2 ] := TDoubleND.Create( 0, _PolyN );
-     _BeziFs[ 3 ] := TDoubleND.Create( 0, _PolyN );
-
-     _FrameI := 0;
-
-     Timer1Timer( Sender );
 end;
 
 end. //######################################################################### ■

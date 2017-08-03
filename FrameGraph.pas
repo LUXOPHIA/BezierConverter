@@ -70,7 +70,7 @@ begin
 
      _Path := TPathData.Create;
 
-     _Range := TSingleArea2D.Create( 0, -1, +1, +1 );
+     _Range := TSingleArea2D.Create( 0, -1.125, 1, +1.125 );
 
      _DivN := 200;
 end;
