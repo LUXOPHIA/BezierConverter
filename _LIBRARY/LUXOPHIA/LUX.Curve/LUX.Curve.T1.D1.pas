@@ -1361,7 +1361,7 @@ var
 begin
      with Result do
      begin
-          _s := Copy( P_._s );
+          Result := TSingleND.Create( P_ );
 
           for Y := 1 to DimN-1 do
           begin
@@ -1378,7 +1378,7 @@ var
 begin
      with Result do
      begin
-          _s := Copy( P_._s );
+          Result := TDoubleND.Create( P_ );
 
           for Y := 1 to DimN-1 do
           begin
