@@ -31,7 +31,7 @@ function BeziToPoly( const P_:TDoubleND ) :TDoubleND;
 var
    X, Y :Integer;
 begin
-     Result._s := Copy( P_._s );
+     Result := TDoubleND.Create( P_ );
      for Y := 1 to Result.DimN-1 do
      begin
           for X := Result.DimN-1 downto Y do Result[ X ] := Result[ X ] - Result[ X-1 ];
