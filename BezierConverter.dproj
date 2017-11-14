@@ -312,8 +312,6 @@
             <Form>Form1</Form>
             <FormType>fmx</FormType>
         </DCCReference>
-        <DCCReference Include="_LIBRARY\LUXOPHIA\LUX\LUX.Lattice.T2.pas"/>
-        <DCCReference Include="_LIBRARY\LUXOPHIA\LUX\LUX.Lattice.T3.pas"/>
         <DCCReference Include="_LIBRARY\LUXOPHIA\LUX\LUX.M2.pas"/>
         <DCCReference Include="_LIBRARY\LUXOPHIA\LUX\LUX.M3.pas"/>
         <DCCReference Include="_LIBRARY\LUXOPHIA\LUX\LUX.M4.pas"/>
@@ -328,7 +326,6 @@
         <DCCReference Include="_LIBRARY\LUXOPHIA\LUX\LUX.D4.M4.pas"/>
         <DCCReference Include="_LIBRARY\LUXOPHIA\LUX\LUX.D4.pas"/>
         <DCCReference Include="_LIBRARY\LUXOPHIA\LUX\LUX.D4.V4.pas"/>
-        <DCCReference Include="_LIBRARY\LUXOPHIA\LUX\LUX.Lattice.T1.pas"/>
         <DCCReference Include="_LIBRARY\LUXOPHIA\LUX\LUX.D5.pas"/>
         <DCCReference Include="_LIBRARY\LUXOPHIA\LUX.Curve\LUX.Curve.T1.D1.pas"/>
         <DCCReference Include="_LIBRARY\LUXOPHIA\LUX.Curve\LUX.Curve.T1.D2.pas"/>
@@ -341,8 +338,12 @@
             <FormType>fmx</FormType>
             <DesignClass>TFrame</DesignClass>
         </DCCReference>
-        <DCCReference Include="_LIBRARY\LUXOPHIA\LUX\LUX.Tree.pas"/>
         <DCCReference Include="_LIBRARY\LUXOPHIA\LUX\LUX.DN.pas"/>
+        <DCCReference Include="_LIBRARY\LUXOPHIA\LUX\LUX.Data.Octree.pas"/>
+        <DCCReference Include="_LIBRARY\LUXOPHIA\LUX\LUX.Data.Tree.pas"/>
+        <DCCReference Include="_LIBRARY\LUXOPHIA\LUX\LUX.Data.Lattice.T1.pas"/>
+        <DCCReference Include="_LIBRARY\LUXOPHIA\LUX\LUX.Data.Lattice.T2.pas"/>
+        <DCCReference Include="_LIBRARY\LUXOPHIA\LUX\LUX.Data.Lattice.T3.pas"/>
         <BuildConfiguration Include="Release">
             <Key>Cfg_2</Key>
             <CfgParent>Base</CfgParent>
