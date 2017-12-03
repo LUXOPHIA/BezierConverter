@@ -312,6 +312,20 @@
             <Form>Form1</Form>
             <FormType>fmx</FormType>
         </DCCReference>
+        <DCCReference Include="_LIBRARY\LUXOPHIA\LUX.Curve\LUX.Curve.T1.D1.pas"/>
+        <DCCReference Include="_LIBRARY\LUXOPHIA\LUX.Curve\LUX.Curve.T1.D2.pas"/>
+        <DCCReference Include="_LIBRARY\LUXOPHIA\LUX.Curve\LUX.Curve.T1.D3.pas"/>
+        <DCCReference Include="_LIBRARY\LUXOPHIA\LUX.Curve\LUX.Curve.T2.D1.pas"/>
+        <DCCReference Include="_LIBRARY\LUXOPHIA\LUX.Curve\LUX.Curve.T2.D2.pas"/>
+        <DCCReference Include="_LIBRARY\LUXOPHIA\LUX.Curve\LUX.Curve.T2.D3.pas"/>
+        <DCCReference Include="FrameGraph.pas">
+            <Form>GraphFrame</Form>
+            <FormType>fmx</FormType>
+            <DesignClass>TFrame</DesignClass>
+        </DCCReference>
+        <DCCReference Include="_LIBRARY\LUXOPHIA\LUX\LUX.D4.V4.pas"/>
+        <DCCReference Include="_LIBRARY\LUXOPHIA\LUX\LUX.D5.pas"/>
+        <DCCReference Include="_LIBRARY\LUXOPHIA\LUX\LUX.DN.pas"/>
         <DCCReference Include="_LIBRARY\LUXOPHIA\LUX\LUX.M2.pas"/>
         <DCCReference Include="_LIBRARY\LUXOPHIA\LUX\LUX.M3.pas"/>
         <DCCReference Include="_LIBRARY\LUXOPHIA\LUX\LUX.M4.pas"/>
@@ -325,25 +339,16 @@
         <DCCReference Include="_LIBRARY\LUXOPHIA\LUX\LUX.D3.V4.pas"/>
         <DCCReference Include="_LIBRARY\LUXOPHIA\LUX\LUX.D4.M4.pas"/>
         <DCCReference Include="_LIBRARY\LUXOPHIA\LUX\LUX.D4.pas"/>
-        <DCCReference Include="_LIBRARY\LUXOPHIA\LUX\LUX.D4.V4.pas"/>
-        <DCCReference Include="_LIBRARY\LUXOPHIA\LUX\LUX.D5.pas"/>
-        <DCCReference Include="_LIBRARY\LUXOPHIA\LUX.Curve\LUX.Curve.T1.D1.pas"/>
-        <DCCReference Include="_LIBRARY\LUXOPHIA\LUX.Curve\LUX.Curve.T1.D2.pas"/>
-        <DCCReference Include="_LIBRARY\LUXOPHIA\LUX.Curve\LUX.Curve.T1.D3.pas"/>
-        <DCCReference Include="_LIBRARY\LUXOPHIA\LUX.Curve\LUX.Curve.T2.D1.pas"/>
-        <DCCReference Include="_LIBRARY\LUXOPHIA\LUX.Curve\LUX.Curve.T2.D2.pas"/>
-        <DCCReference Include="_LIBRARY\LUXOPHIA\LUX.Curve\LUX.Curve.T2.D3.pas"/>
-        <DCCReference Include="FrameGraph.pas">
-            <Form>GraphFrame</Form>
-            <FormType>fmx</FormType>
-            <DesignClass>TFrame</DesignClass>
-        </DCCReference>
-        <DCCReference Include="_LIBRARY\LUXOPHIA\LUX\LUX.DN.pas"/>
-        <DCCReference Include="_LIBRARY\LUXOPHIA\LUX\LUX.Data.Octree.pas"/>
-        <DCCReference Include="_LIBRARY\LUXOPHIA\LUX\LUX.Data.Tree.pas"/>
-        <DCCReference Include="_LIBRARY\LUXOPHIA\LUX\LUX.Data.Lattice.T1.pas"/>
-        <DCCReference Include="_LIBRARY\LUXOPHIA\LUX\LUX.Data.Lattice.T2.pas"/>
-        <DCCReference Include="_LIBRARY\LUXOPHIA\LUX\LUX.Data.Lattice.T3.pas"/>
+        <DCCReference Include="_LIBRARY\LUXOPHIA\LUX\» Data\LUX.Data.Lattice.T2.pas"/>
+        <DCCReference Include="_LIBRARY\LUXOPHIA\LUX\» Data\LUX.Data.Lattice.T3.pas"/>
+        <DCCReference Include="_LIBRARY\LUXOPHIA\LUX\» Data\LUX.Data.Octree.pas"/>
+        <DCCReference Include="_LIBRARY\LUXOPHIA\LUX\» Data\LUX.Data.Tree.pas"/>
+        <DCCReference Include="_LIBRARY\LUXOPHIA\LUX\» Data\LUX.Data.Lattice.T1.pas"/>
+        <DCCReference Include="_LIBRARY\LUXOPHIA\LUX\» Math\LUX.Math.Distribution.pas"/>
+        <DCCReference Include="_LIBRARY\LUXOPHIA\LUX\» Math\LUX.Math.Special.Beta.pas"/>
+        <DCCReference Include="_LIBRARY\LUXOPHIA\LUX\» Math\LUX.Math.Special.Gamma.Lanczos.pas"/>
+        <DCCReference Include="_LIBRARY\LUXOPHIA\LUX\» Math\LUX.Math.Special.Gamma.Ooura.pas"/>
+        <DCCReference Include="_LIBRARY\LUXOPHIA\LUX\» Math\LUX.Math.Special.pas"/>
         <BuildConfiguration Include="Release">
             <Key>Cfg_2</Key>
             <CfgParent>Base</CfgParent>
