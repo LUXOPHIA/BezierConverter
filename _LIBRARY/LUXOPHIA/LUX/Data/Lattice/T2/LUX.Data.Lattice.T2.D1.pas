@@ -15,12 +15,12 @@ type //$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
 
      //%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% TSingleGridMap2T<T_Item>
 
-     TSingleGridMap2T = class( TGridArray2D<Single> )
+     TSingleGridMap2T = class( TPoinArray2D<Single> )
      private
      protected
      public
        constructor Create; overload;
-       constructor Create( const BricX_,BricY_:Integer ); overload;
+       constructor Create( const CellsX_,CellsY_:Integer ); overload;
        destructor Destroy; override;
        ///// メソッド
        procedure Patch( const T_:TSingle2D; out M_:TSingleM4 ); overload;
@@ -57,9 +57,9 @@ begin
      Create( 2, 2 );
 end;
 
-constructor TSingleGridMap2T.Create( const BricX_,BricY_:Integer );
+constructor TSingleGridMap2T.Create( const CellsX_,CellsY_:Integer );
 begin
-     Create( BricX_, BricY_, 2, 2 );
+     Create( CellsX_, CellsY_, 2, 2 );
 end;
 
 destructor TSingleGridMap2T.Destroy;
@@ -80,10 +80,10 @@ begin
 
      with M_ do
      begin
-          _11 := Grids[ X1, Y1 ];  _12 := Grids[ X2, Y1 ];  _13 := Grids[ X3, Y1 ];  _14 := Grids[ X4, Y1 ];
-          _21 := Grids[ X1, Y2 ];  _22 := Grids[ X2, Y2 ];  _23 := Grids[ X3, Y2 ];  _24 := Grids[ X4, Y2 ];
-          _31 := Grids[ X1, Y3 ];  _32 := Grids[ X2, Y3 ];  _33 := Grids[ X3, Y3 ];  _34 := Grids[ X4, Y3 ];
-          _41 := Grids[ X1, Y4 ];  _42 := Grids[ X2, Y4 ];  _43 := Grids[ X3, Y4 ];  _44 := Grids[ X4, Y4 ];
+          _11 := Poins[ X1, Y1 ];  _12 := Poins[ X2, Y1 ];  _13 := Poins[ X3, Y1 ];  _14 := Poins[ X4, Y1 ];
+          _21 := Poins[ X1, Y2 ];  _22 := Poins[ X2, Y2 ];  _23 := Poins[ X3, Y2 ];  _24 := Poins[ X4, Y2 ];
+          _31 := Poins[ X1, Y3 ];  _32 := Poins[ X2, Y3 ];  _33 := Poins[ X3, Y3 ];  _34 := Poins[ X4, Y3 ];
+          _41 := Poins[ X1, Y4 ];  _42 := Poins[ X2, Y4 ];  _43 := Poins[ X3, Y4 ];  _44 := Poins[ X4, Y4 ];
      end;
 end;
 
@@ -97,10 +97,10 @@ begin
 
      with M_ do
      begin
-          _11 := Grids[ X1, Y1 ];  _12 := Grids[ X2, Y1 ];  _13 := Grids[ X3, Y1 ];  _14 := Grids[ X4, Y1 ];
-          _21 := Grids[ X1, Y2 ];  _22 := Grids[ X2, Y2 ];  _23 := Grids[ X3, Y2 ];  _24 := Grids[ X4, Y2 ];
-          _31 := Grids[ X1, Y3 ];  _32 := Grids[ X2, Y3 ];  _33 := Grids[ X3, Y3 ];  _34 := Grids[ X4, Y3 ];
-          _41 := Grids[ X1, Y4 ];  _42 := Grids[ X2, Y4 ];  _43 := Grids[ X3, Y4 ];  _44 := Grids[ X4, Y4 ];
+          _11 := Poins[ X1, Y1 ];  _12 := Poins[ X2, Y1 ];  _13 := Poins[ X3, Y1 ];  _14 := Poins[ X4, Y1 ];
+          _21 := Poins[ X1, Y2 ];  _22 := Poins[ X2, Y2 ];  _23 := Poins[ X3, Y2 ];  _24 := Poins[ X4, Y2 ];
+          _31 := Poins[ X1, Y3 ];  _32 := Poins[ X2, Y3 ];  _33 := Poins[ X3, Y3 ];  _34 := Poins[ X4, Y3 ];
+          _41 := Poins[ X1, Y4 ];  _42 := Poins[ X2, Y4 ];  _43 := Poins[ X3, Y4 ];  _44 := Poins[ X4, Y4 ];
      end;
 end;
 
