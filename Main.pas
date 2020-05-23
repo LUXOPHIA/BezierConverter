@@ -125,7 +125,7 @@ begin
           _PolyKs[ 3 ] := BeziToPoly( TDoubleND.RandG( _PolyN ) );  // Bernstein → Power
      end;
 
-     BSplin4( Id / KeyW, Bs );
+     BSpline4( Id / KeyW, Bs );
 
      _PolyK := Bs._1 * _PolyKs[ 0 ]
              + Bs._2 * _PolyKs[ 1 ]
