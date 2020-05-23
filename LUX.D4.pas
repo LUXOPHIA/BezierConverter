@@ -33,6 +33,34 @@ type //$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
           _4 :Byte;                  );
      end;
 
+     TInt08u4D = TByte4D;  TInt8u4D = TInt08u4D;
+
+     //%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% TWord4D
+
+     TWord4D = record
+     private
+       ///// アクセス
+       function GetV( const I_:Integer ) :Word; inline;
+       procedure SetV( const I_:Integer; const V_:Word ); inline;
+     public
+       constructor Create( const V_:Word ); overload;
+       constructor Create( const X_,Y_,Z_,W_:Word ); overload;
+       ///// プロパティ
+       property _s[ const I_:Integer ] :Word read GetV write SetV; default;
+     case Word of
+      0:( _ :array [ 1..4 ] of Word; );
+      1:(  X :Word;
+           Y :Word;
+           Z :Word;
+           W :Word;                  );
+      2:( _1 :Word;
+          _2 :Word;
+          _3 :Word;
+          _4 :Word;                  );
+     end;
+
+     TInt16u4D = TWord4D;
+
      //%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% TInteger4D
 
      TInteger4D = record
@@ -55,6 +83,82 @@ type //$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
           _2 :Integer;
           _3 :Integer;
           _4 :Integer;                  );
+     end;
+
+     TInt32s4D = TInteger4D;
+
+     //%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% TCardinal4D
+
+     TCardinal4D = record
+     private
+       ///// アクセス
+       function GetV( const I_:Cardinal ) :Cardinal; inline;
+       procedure SetV( const I_:Cardinal; const V_:Cardinal ); inline;
+     public
+       constructor Create( const V_:Cardinal ); overload;
+       constructor Create( const X_,Y_,Z_,W_:Cardinal ); overload;
+       ///// プロパティ
+       property _s[ const I_:Cardinal ] :Cardinal read GetV write SetV; default;
+     case Byte of
+      0:( _ :array [ 1..4 ] of Cardinal; );
+      1:(  X :Cardinal;
+           Y :Cardinal;
+           Z :Cardinal;
+           W :Cardinal;                  );
+      2:( _1 :Cardinal;
+          _2 :Cardinal;
+          _3 :Cardinal;
+          _4 :Cardinal;                  );
+     end;
+
+     TInt32u4D = TCardinal4D;
+
+     //%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% TInt64u4D
+
+     TInt64u4D = record
+     private
+       ///// アクセス
+       function GetV( const I_:Byte ) :Int64u; inline;
+       procedure SetV( const I_:Byte; const V_:Int64u ); inline;
+     public
+       constructor Create( const V_:Int64u ); overload;
+       constructor Create( const X_,Y_,Z_,W_:Int64u ); overload;
+       ///// プロパティ
+       property _s[ const I_:Byte ] :Int64u read GetV write SetV; default;
+     case Byte of
+      0:( _  :array [ 1..4 ] of Int64u; );
+      1:(  X :Int64u;
+           Y :Int64u;
+           Z :Int64u;
+           W :Int64u;                   );
+      2:( _1 :Int64u;
+          _2 :Int64u;
+          _3 :Int64u;
+          _4 :Int64u;                   );
+     end;
+
+     //%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% TInt64s4D
+
+     TInt64s4D = record
+     private
+       ///// アクセス
+       function GetV( const I_:Byte ) :Int64s; inline;
+       procedure SetV( const I_:Byte; const V_:Int64s ); inline;
+     public
+       constructor Create( const V_:Int64s ); overload;
+       constructor Create( const X_,Y_,Z_,W_:Int64s ); overload;
+       ///// プロパティ
+       property _s[ const I_:Byte ] :Int64s read GetV write SetV; default;
+     case Byte of
+      0:( _  :array [ 1..4 ] of Int64s; );
+      1:(  X :Int64s;
+           Y :Int64s;
+           Z :Int64s;
+           W :Int64s;                   );
+      2:( _1 :Int64s;
+          _2 :Int64s;
+          _3 :Int64s;
+          _4 :Int64s;                   );
      end;
 
      //%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% TSingle4D
@@ -119,6 +223,8 @@ type //$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
           _3 :Single;
           _4 :Single;                  );
      end;
+
+     TFlo32s4D = TSingle4D;
 
      TSinglePos4D = TSingle4D;
      TSingleVec4D = TSingle4D;
@@ -186,6 +292,8 @@ type //$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
           _4 :Double;                  );
      end;
 
+     TFlo64s4D = TDouble4D;
+
      TDoublePos4D = TDouble4D;
      TDoubleVec4D = TDouble4D;
 
@@ -238,6 +346,8 @@ type //$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
           _4 :TdSingle;                  );
      end;
 
+     TdFlo32s4D = TdSingle4D;
+
      TdSinglePos4D = TdSingle4D;
      TdSingleVec4D = TdSingle4D;
 
@@ -289,6 +399,8 @@ type //$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
           _3 :TdDouble;
           _4 :TdDouble;                  );
      end;
+
+     TdFlo64s4D = TdDouble4D;
 
      TdDoublePos4D = TdDouble4D;
      TdDoubleVec4D = TdDouble4D;
@@ -379,6 +491,40 @@ begin
      W := W_;
 end;
 
+//%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% TWord4D
+
+//&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&& private
+
+/////////////////////////////////////////////////////////////////////// アクセス
+
+function TWord4D.GetV( const I_:Integer ) :Word;
+begin
+     Result := _[ I_ ];
+end;
+
+procedure TWord4D.SetV( const I_:Integer; const V_:Word );
+begin
+     _[ I_ ] := V_;
+end;
+
+//&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&& public
+
+constructor TWord4D.Create( const V_:Word );
+begin
+     X := V_;
+     Y := V_;
+     Z := V_;
+     W := V_;
+end;
+
+constructor TWord4D.Create( const X_,Y_,Z_,W_:Word );
+begin
+     X := X_;
+     Y := Y_;
+     Z := Z_;
+     W := W_;
+end;
+
 //%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% TInteger4D
 
 //&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&& private
@@ -406,6 +552,108 @@ begin
 end;
 
 constructor TInteger4D.Create( const X_,Y_,Z_,W_:Integer );
+begin
+     X := X_;
+     Y := Y_;
+     Z := Z_;
+     W := W_;
+end;
+
+//%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% TCardinal4D
+
+//&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&& private
+
+/////////////////////////////////////////////////////////////////////// アクセス
+
+function TCardinal4D.GetV( const I_:Cardinal ) :Cardinal;
+begin
+     Result := _[ I_ ];
+end;
+
+procedure TCardinal4D.SetV( const I_:Cardinal; const V_:Cardinal );
+begin
+     _[ I_ ] := V_;
+end;
+
+//&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&& public
+
+constructor TCardinal4D.Create( const V_:Cardinal );
+begin
+     X := V_;
+     Y := V_;
+     Z := V_;
+     W := V_;
+end;
+
+constructor TCardinal4D.Create( const X_,Y_,Z_,W_:Cardinal );
+begin
+     X := X_;
+     Y := Y_;
+     Z := Z_;
+     W := W_;
+end;
+
+//%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% TInt64u4D
+
+//&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&& private
+
+/////////////////////////////////////////////////////////////////////// アクセス
+
+function TInt64u4D.GetV( const I_:Byte ) :Int64u;
+begin
+     Result := _[ I_ ];
+end;
+
+procedure TInt64u4D.SetV( const I_:Byte; const V_:Int64u );
+begin
+     _[ I_ ] := V_;
+end;
+
+//&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&& public
+
+constructor TInt64u4D.Create( const V_:Int64u );
+begin
+     X := V_;
+     Y := V_;
+     Z := V_;
+     W := V_;
+end;
+
+constructor TInt64u4D.Create( const X_,Y_,Z_,W_:Int64u );
+begin
+     X := X_;
+     Y := Y_;
+     Z := Z_;
+     W := W_;
+end;
+
+//%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% TInt64s4D
+
+//&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&& private
+
+/////////////////////////////////////////////////////////////////////// アクセス
+
+function TInt64s4D.GetV( const I_:Byte ) :Int64s;
+begin
+     Result := _[ I_ ];
+end;
+
+procedure TInt64s4D.SetV( const I_:Byte; const V_:Int64s );
+begin
+     _[ I_ ] := V_;
+end;
+
+//&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&& public
+
+constructor TInt64s4D.Create( const V_:Int64s );
+begin
+     X := V_;
+     Y := V_;
+     Z := V_;
+     W := V_;
+end;
+
+constructor TInt64s4D.Create( const X_,Y_,Z_,W_:Int64s );
 begin
      X := X_;
      Y := Y_;
